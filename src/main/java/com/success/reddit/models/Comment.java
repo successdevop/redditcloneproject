@@ -1,9 +1,7 @@
 package com.success.reddit.models;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class Comment extends Audible{
     @Id
@@ -22,5 +23,6 @@ public class Comment extends Audible{
     private String commentBody;
 
     @ManyToOne
+    @NonNull
     private Link link;
 }
